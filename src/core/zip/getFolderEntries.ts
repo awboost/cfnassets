@@ -16,7 +16,7 @@ export async function* getFolderEntries({
   ignore: ignorePaths,
 }: FolderEntriesOptions): AsyncIterableIterator<ZipAssetEntry> {
   const work = [resolve(source)];
-  const ig = ignore().add(ignorePaths || []);
+  const ig = ignore.default().add(ignorePaths || []);
 
   while (work.length) {
     const curr = work.pop() as string;
